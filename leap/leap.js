@@ -1,11 +1,3 @@
-export const isLeap = (year) => {
-    let divisibleBy4 = year % 4 === 0;
-    let divisibleBy100 = year % 100 === 0;
-    let divisibleBy400 = year % 400 === 0;
+const divisibleBy = (year, x) => year % x === 0;
 
-    if (!divisibleBy4) {
-      return false;
-    }
-
-    return divisibleBy100 ? divisibleBy400 : true; 
-};
+export const isLeap = year => divisibleBy(year, 4) && (!divisibleBy(year, 100) || divisibleBy(year, 400));
